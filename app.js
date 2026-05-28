@@ -1,113 +1,69 @@
-// =========================================
-// IMPORTA O EXPRESS
-// =========================================
+// ======================================
+// IMPORTAÇÕES
+// ======================================
 
-// require() funciona como "import"
-
-// Estamos pegando a biblioteca Express
-// que foi instalada com:
-//
-// npm install express
-
+// Importa o framework Express
 const express = require("express");
 
-
-// =========================================
-// IMPORTA O PATH
-// =========================================
-
-// Path é um módulo nativo do Node.js
-
-// Ele ajuda a trabalhar com caminhos
-// de pastas e arquivos
-
+// Importa o path
 const path = require("path");
 
 
-// =========================================
-// CRIA A APLICAÇÃO EXPRESS
-// =========================================
+// ======================================
+// APP
+// ======================================
 
-// Aqui estamos criando nosso servidor
-
+// Cria a aplicação
 const app = express();
 
 
-// =========================================
-// CONFIGURA O EJS
-// =========================================
+// ======================================
+// CONFIGURAÇÃO EJS
+// ======================================
 
-// Dizemos para o Express:
-//
-// "As páginas do site serão EJS"
-
+// Define EJS como view engine
 app.set("view engine", "ejs");
 
-
-// =========================================
-// DEFINE A PASTA PUBLIC
-// =========================================
-
-// express.static() fala:
-//
-// "Tudo nessa pasta pode ser acessado
-// diretamente pelo navegador"
-
-// __dirname = pasta atual do projeto
-
-app.use(
-    express.static(
-        path.join(__dirname, "public")
-    )
-);
+// Define a pasta de views
+app.set("views", path.join(__dirname, "views"));
 
 
-// =========================================
-// CRIA A PRIMEIRA ROTA
-// =========================================
+// ======================================
+// ARQUIVOS ESTÁTICOS
+// ======================================
 
-// app.get() significa:
-//
-// "Quando alguém acessar essa URL"
+// Libera a pasta public
+app.use(express.static(path.join(__dirname, "public")));
 
-// "/" significa:
-//
-// página inicial
 
+// ======================================
+// ROTAS
+// ======================================
+
+// Página principal
 app.get("/", (req, res) => {
 
-    // req = requisição
-    // res = resposta
-
-    // render() renderiza um arquivo EJS
-
-    // Aqui:
-    // views/index.ejs
-
+    // Renderiza index.ejs
     res.render("index");
 
 });
 
 
-// =========================================
-// PORTA DO SERVIDOR
-// =========================================
+// ======================================
+// PORTA
+// ======================================
 
-// Todo servidor roda em uma porta
+// Usa a porta do Render
+// ou localmente usa 3000
+const PORT = process.env.PORT || 3000;
 
-const PORT = 3000;
 
-
-// =========================================
-// INICIA O SERVIDOR
-// =========================================
-
-// app.listen() inicia o servidor
+// ======================================
+// INICIAR SERVIDOR
+// ======================================
 
 app.listen(PORT, () => {
 
-    console.log(
-        `Servidor rodando em http://localhost:${PORT}`
-    );
+    console.log(`server running on port ${PORT}`);
 
 });
