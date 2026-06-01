@@ -1,0 +1,106 @@
+MEU BACK-END COMENTADO
+
+Eu organizei o back-end do meu projeto de forma simples e direta, usando Node.js com Express e EJS.
+Aqui está o que eu fiz no `app.js`, explicado como se eu tivesse escrito isso para mim mesmo.
+
+1. O que eu usei
+- `Node.js`: para rodar JavaScript no servidor.
+- `Express`: para criar o servidor e definir rotas.
+- `EJS`: para renderizar a página `index.ejs` com o servidor.
+- `path`: para montar caminhos de arquivo com segurança.
+
+2. Meu `package.json`
+- `main: "app.js"` indica que o arquivo principal do back-end é `app.js`.
+- `scripts.start` roda `node app.js`, que inicia o servidor.
+- `dependencies` traz `express` e `ejs`, que meu back-end precisa instalar.
+
+3. Comentários do meu código `app.js`
+
+// ======================================
+// IMPORTAÇÕES
+// ======================================
+
+// Eu importei o Express para criar o servidor
+const express = require("express");
+
+// Eu importei o path para formar caminhos corretos até pastas e arquivos
+const path = require("path");
+
+
+// ======================================
+// APP
+// ======================================
+
+// Criei a aplicação Express que vai tratar as requisições
+const app = express();
+
+
+// ======================================
+// CONFIGURAÇÃO EJS
+// ======================================
+
+// Eu disse para o Express usar o EJS como view engine
+app.set("view engine", "ejs");
+
+// Eu defini que as views (templates) ficam na pasta views
+app.set("views", path.join(__dirname, "views"));
+
+
+// ======================================
+// ARQUIVOS ESTÁTICOS
+// ======================================
+
+// Eu liberei a pasta public para servir CSS, JS, imagens e outros arquivos estáticos
+app.use(express.static(path.join(__dirname, "public")));
+
+
+// ======================================
+// ROTAS
+// ======================================
+
+// Quando alguém acessar a raiz do site, eu renderizo o template index.ejs
+app.get("/", (req, res) => {
+    
+    // Renderizo a página principal usando EJS
+    res.render("index");
+
+});
+
+
+// ======================================
+// PORTA
+// ======================================
+
+// Eu uso a porta do ambiente (se existir) ou 3000 localmente
+const PORT = process.env.PORT || 3000;
+
+
+// ======================================
+// INICIAR SERVIDOR
+// ======================================
+
+// Eu inicio o servidor e deixo ele escutando nessa porta
+app.listen(PORT, () => {
+
+    console.log(`server running on port ${PORT}`);
+
+});
+
+4. O que cada parte faz no meu servidor
+- `express()` cria a aplicação que responde aos pedidos do navegador.
+- `app.set("view engine", "ejs")` me permite usar arquivos `.ejs` no lugar de HTML puro.
+- `app.set("views", path.join(__dirname, "views"))` garante que o Express encontre minha pasta `views`.
+- `app.use(express.static(path.join(__dirname, "public")))` faz com que o navegador possa carregar CSS, JS e imagens diretamente.
+- `app.get("/", ...)` define a rota da página inicial.
+- `res.render("index")` monta o HTML usando `views/index.ejs` e manda para o navegador.
+- `app.listen(PORT, ...)` inicia o servidor e deixa ele disponível na porta escolhida.
+
+5. Por que isso é suficiente para o meu projeto agora
+- Com isso, meu front-end já funciona junto com o servidor.
+- O servidor serve o HTML dinâmico via EJS e também os arquivos estáticos na pasta `public`.
+- Se eu quiser criar APIs depois, basta adicionar novas rotas como `app.get("/api/exemplo", ...)`.
+
+6. O que eu posso fazer de próximo
+- Adicionar rotas novas para outras páginas ou dados.
+- Enviar JSON em vez de renderizar EJS, se eu quiser usar JavaScript no front-end para consumir uma API.
+- Conectar com banco de dados mais tarde, usando esse mesmo servidor Express.

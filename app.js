@@ -67,3 +67,22 @@ app.listen(PORT, () => {
     console.log(`server running on port ${PORT}`);
 
 });
+
+
+// ======================================
+// FUNÇÃO DESTE ARQUIVO
+// ======================================
+
+// Este arquivo é o coração do back-end do meu projeto.
+// Ele configura o servidor Node.js com Express, define onde estão as views e os arquivos estáticos,
+// e cria a rota principal que renderiza a página inicial.
+//
+// Responsabilidade:
+// - iniciar o servidor na porta escolhida
+// - servir arquivos estáticos de dentro da pasta public
+// - renderizar a página index.ejs quando o usuário acessar /
+//
+// Por que ele é importante:
+// - sem ele, meu site não teria um servidor para responder às requisições
+// - ele conecta meu front-end estruturado (HTML, CSS, Bootstrap) ao back-end em Node.js
+// - facilita adicionar novas rotas e APIs no futuro
