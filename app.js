@@ -49,6 +49,27 @@ app.get("/", (req, res) => {
 });
 
 
+// Página de introdução ao Emily Navigator
+app.get("/archive", (req, res) => {
+
+    // Renderiza archive.ejs
+    res.render("archive");
+
+});
+
+// ======================================
+// LOADING
+// ======================================
+
+// Tela de carregamento antes da página principal
+
+app.get("/loading", (req, res) => {
+
+    res.render("loading");
+
+});
+
+
 // ======================================
 // PORTA
 // ======================================
@@ -75,12 +96,13 @@ app.listen(PORT, () => {
 
 // Este arquivo é o coração do back-end do meu projeto.
 // Ele configura o servidor Node.js com Express, define onde estão as views e os arquivos estáticos,
-// e cria a rota principal que renderiza a página inicial.
+// e cria as rotas responsáveis por renderizar as páginas da aplicação.
 //
 // Responsabilidade:
 // - iniciar o servidor na porta escolhida
 // - servir arquivos estáticos de dentro da pasta public
-// - renderizar a página index.ejs quando o usuário acessar /
+// - renderizar a página principal (index.ejs)
+// - renderizar a página de introdução (archive.ejs)
 //
 // Por que ele é importante:
 // - sem ele, meu site não teria um servidor para responder às requisições

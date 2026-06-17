@@ -377,6 +377,36 @@ body::before{
 
 }
 
+/* ======================================= */
+/* WEBCAM HOVER */
+/* ======================================= */
+
+.photo-wrapper{
+
+    overflow:hidden;
+
+}
+
+.photo-wrapper img{
+
+    transition:transform 0.35s ease;
+
+}
+
+.photo-wrapper:hover img{
+
+    transform:scale(1.02);
+
+}
+
+.live{
+
+    color:#d94747;
+
+    border-color:#d94747;
+
+}
+
 
 /* ======================================= */
 /* CHAT */
@@ -521,15 +551,17 @@ body::before{
 
     padding:15px;
 
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
 }
 
 .song-name{
 
     opacity:0.6;
-
-    margin-top:6px;
-
-    margin-bottom:15px;
 
     font-size:13px;
 
@@ -561,6 +593,46 @@ audio{
     margin-bottom:10px;
 
     opacity:0.8;
+
+}
+
+/* ======================================= */
+/* OWNER TAG */
+/* ======================================= */
+
+.owner-tag{
+
+    margin-top:10px;
+
+    display:inline-block;
+
+    margin-top:8px;
+
+    padding:4px 8px;
+
+    background:#111;
+
+    border:1px solid #2b2b2b;
+
+    font-size:10px;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+    color:#cfcfcf;
+
+    opacity:0.75;
+
+    transition:0.25s;
+
+}
+
+.owner-tag:hover{
+
+    opacity:1;
+
+    border-color:#555;
 
 }
 
@@ -617,6 +689,31 @@ audio{
 .messages::-webkit-scrollbar-thumb{
 
     background:#222;
+
+}
+
+/* ======================================= */
+/* CURSOR PISCANDO */
+/* ======================================= */
+
+.cursor{
+
+    display:inline-block;
+
+    margin-left:4px;
+
+    animation:blink 1s steps(1) infinite;
+
+}
+
+
+@keyframes blink{
+
+    50%{
+
+        opacity:0;
+
+    }
 
 }
 
@@ -829,6 +926,112 @@ audio{
     .menu-bar{
 
         justify-content:center;
+
+    }
+
+/* ======================================= */
+/* ARCHIVE */
+/* ======================================= */
+
+
+/* ======================================= */
+/* SYSTEM LOG */
+/* ======================================= */
+
+    #system-log p{
+
+        display:none;
+
+    }
+
+
+/* ======================================= */
+/* ACCESS */
+/* ======================================= */
+
+    #openArchive{
+
+        display:none;
+
+        color:#d6d6d6;
+
+        font-size:13px;
+
+        letter-spacing:2px;
+
+        text-transform:uppercase;
+
+        cursor:pointer;
+
+        transition:0.25s;
+
+        user-select:none;
+
+        width:fit-content;
+
+    }
+
+    #openArchive:hover{
+
+        color:#ffffff;
+
+        transform:translateX(6px);
+
+    }
+
+    #openArchive:active{
+
+        opacity:0.6;
+
+    }
+
+/* ======================================= */
+/* ANIMAÇÕES */
+/* ======================================= */
+
+    .browser-window{
+
+        opacity:0;
+
+        animation:fadeIn 0.6s ease forwards;
+
+    }
+
+    .browser-window.fade-out{
+
+        animation:fadeOut 0.5s ease forwards;
+
+    }
+
+    @keyframes fadeIn{
+
+        from{
+
+            opacity:0;
+
+        }
+
+        to{
+
+            opacity:1;
+
+        }
+
+    }
+
+    @keyframes fadeOut{
+
+        from{
+
+            opacity:1;
+
+        }
+
+        to{
+
+            opacity:0;
+
+        }
 
     }
 

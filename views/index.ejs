@@ -12,7 +12,7 @@
     <title>seemilyplay</title>
 
     <link rel="stylesheet"
-          href="/css/style.css">
+          href="/css/home.css">
 
 </head>
 
@@ -64,11 +64,15 @@
 
         <div class="menu-bar">
 
-            <span>File</span>
-            <span>Edit</span>
-            <span>View</span>
-            <span>Favorites</span>
-            <span>Help</span>
+            <span data-message="Browsing local files...">File</span>
+
+            <span data-message="Nothing to edit here.">Edit</span>
+
+            <span data-message="Viewing cached content.">View</span>
+
+            <span data-message="4 saved items found.">Favorites</span>
+
+            <span data-message="No help needed.">Help</span>
 
         </div>
 
@@ -81,9 +85,11 @@
 
             <span>URL:</span>
 
-            <input type="text"
-                   value="https://seemilyplay.net"
-                   readonly>
+            <input
+                id="browserUrl" 
+                type="text"
+                value="https://seemilyplay.net"
+                readonly>
 
         </div>
 
@@ -92,9 +98,11 @@
         <!-- FRASE -->
         <!-- ===================================== -->
 
-        <div class="top-quote">
+        <div class="top-quote" id="topQuote">
 
             now we are all just here to see Emily play
+
+            <span class="cursor">|</span>
 
         </div>
 
@@ -137,7 +145,7 @@
 
                                 <img src="/photos/photo1.jpeg">
 
-                                <div class="timestamp">
+                                <div class="timestamp" data-time="02:14AM">
 
                                     02:14AM
 
@@ -157,7 +165,7 @@
 
                                 <img src="/photos/photo2.jpeg">
 
-                                <div class="timestamp">
+                                <div class="timestamp" data-time="02:32AM">
 
                                     02:32AM
 
@@ -352,15 +360,23 @@
 
                         <p>last online: 2:37AM</p>
 
+                        <p>connection: stable</p>
+
                         <p>status: probably asleep</p>
 
                         <p>camera feed archived</p>
 
-                        <p>connection: stable</p>
-
                         <p>cached locally</p>
 
+                        <div class="owner-tag">
+
+                            SCOTT'S OWNER
+
+                        </div>
+
                     </div>
+
+
 
                 </div>
 
@@ -380,13 +396,21 @@
 
                     <div class="links-box">
 
-                        <a href="#">old photos</a>
+                        <a href="#" data-url="old-photos">
+                            old photos
+                        </a>
 
-                        <a href="#">a7x playlist</a>
+                        <a href="#" data-url="a7x-playlist">
+                            a7x playlist
+                        </a>
 
-                        <a href="#">camera roll</a>
+                        <a href="#" data-url="camera-roll">
+                            camera roll
+                        </a>
 
-                        <a href="#">last seen</a>
+                        <a href="#" data-url="last-seen">
+                            last seen
+                        </a>
 
                     </div>
 
@@ -402,17 +426,17 @@
 
                     <div class="box-title">
 
-                        site info
+                        ARCHIVE INFO
 
                     </div>
 
                     <div class="status-box">
 
-                        <p>last updated: 12/05/2005</p>
-
-                        <p>in her pfp once</p>
+                        <p>build: 1.0</p>
 
                         <p>resolution: 1280x720</p>
+
+                        <p>last backup: 12/05/2005</p>
 
                     </div>
 
@@ -427,6 +451,11 @@
 
     </div>
 
+<!-- ===================================== -->
+<!-- JAVASCRIPT -->
+<!-- ===================================== -->
+
+<script src="/js/home.js"></script>
 
 </body>
 
