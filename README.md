@@ -1,12 +1,14 @@
 # seemilyplay
 
-Uma aplicação web desenvolvida com Node.js, Express.js e EJS, criada para explorar conceitos de desenvolvimento Full Stack, renderização no servidor e publicação de aplicações web em ambiente de produção.
+Aplicação web desenvolvida com Node.js, Express.js e EJS, criada para explorar conceitos de desenvolvimento Full Stack, renderização no servidor e organização de aplicações baseadas em templates.
 
-O projeto utiliza uma arquitetura simples baseada em rotas Express e templates EJS, permitindo a construção de páginas dinâmicas e organização eficiente dos recursos estáticos da aplicação.
+O projeto utiliza uma arquitetura baseada em Express.js para gerenciamento das rotas, EJS para renderização das páginas e uma separação modular entre estrutura, estilização e comportamento através de HTML, CSS e JavaScript.
+
+O objetivo foi desenvolver uma aplicação com foco em organização de código, experiência do usuário, responsividade e boas práticas de estruturação de projetos web.
 
 ---
 
-## Tecnologias Utilizadas
+# Tecnologias Utilizadas
 
 ### Node.js
 
@@ -14,19 +16,23 @@ Ambiente de execução JavaScript utilizado para executar o servidor da aplicaç
 
 ### Express.js
 
-Framework responsável pelo gerenciamento de rotas, configuração do servidor HTTP e entrega das páginas ao usuário.
+Framework responsável pelo gerenciamento das rotas, configuração do servidor HTTP e entrega das páginas renderizadas.
 
 ### EJS (Embedded JavaScript Templates)
 
-Template Engine utilizada para renderizar páginas HTML no servidor e separar a estrutura visual da lógica da aplicação.
+Template Engine utilizada para renderizar páginas dinamicamente no servidor e organizar a estrutura das views.
 
 ### HTML5
 
-Utilizado na estruturação do conteúdo das páginas.
+Utilizado para estruturação semântica do conteúdo.
 
 ### CSS3
 
-Responsável pela estilização da interface, layout responsivo e elementos visuais do projeto.
+Responsável pela estilização da interface, responsividade, animações e identidade visual do projeto.
+
+### JavaScript (Vanilla)
+
+Utilizado para implementar comportamentos da interface, transições entre páginas e interações com o usuário.
 
 ### Git
 
@@ -34,29 +40,40 @@ Ferramenta utilizada para controle de versão durante todo o desenvolvimento.
 
 ### GitHub
 
-Plataforma utilizada para hospedagem e gerenciamento remoto do código-fonte.
+Plataforma utilizada para hospedagem e gerenciamento do código-fonte.
 
 ### Render
 
-Serviço de hospedagem responsável pelo deploy e disponibilização da aplicação na web.
+Serviço responsável pelo deploy e disponibilização da aplicação em ambiente de produção.
 
 ---
 
-## Arquitetura do Projeto
+# Arquitetura do Projeto
 
 ```text
 seemilyplay
 │
 ├── public
 │   ├── css
+│   │   ├── archive.css
+│   │   ├── loading.css
 │   │   └── style.css
+│   │
+│   ├── js
+│   │   ├── archive.js
+│   │   ├── loading.js
+│   │   └── script.js
+│   │
 │   ├── music
 │   │   └── song.mp3
+│   │
 │   └── photos
-│       ├── photo1.jpg
-│       └── photo2.jpg
+│       ├── photo1.jpeg
+│       └── photo2.jpeg
 │
 ├── views
+│   ├── archive.ejs
+│   ├── loading.ejs
 │   └── index.ejs
 │
 ├── app.js
@@ -64,38 +81,75 @@ seemilyplay
 └── README.md
 ```
 
+---
+
+# Organização do Projeto
+
 ### public/
 
-Contém todos os arquivos estáticos da aplicação, como folhas de estilo, imagens e arquivos de áudio.
+Contém todos os recursos estáticos utilizados pela aplicação.
+
+- folhas de estilo
+- scripts JavaScript
+- imagens
+- arquivos de áudio
 
 ### views/
 
-Armazena os templates EJS responsáveis pela renderização das páginas.
+Armazena as páginas renderizadas pelo Express utilizando EJS.
+
+Cada página possui uma responsabilidade específica dentro do fluxo da aplicação.
 
 ### app.js
 
-Arquivo principal responsável pela inicialização do servidor Express, configuração das rotas e disponibilização dos recursos estáticos.
+Arquivo principal responsável por:
+
+- inicializar o servidor Express;
+- configurar a Template Engine;
+- disponibilizar arquivos estáticos;
+- definir as rotas da aplicação.
 
 ### package.json
 
-Arquivo de configuração do projeto contendo dependências, scripts e metadados da aplicação.
+Arquivo responsável pelo gerenciamento das dependências, scripts e configurações do projeto.
 
 ---
 
-## Funcionalidades
+# Estrutura de Navegação
 
-* Servidor web utilizando Express.js
-* Renderização de páginas utilizando EJS
-* Organização de recursos estáticos
-* Layout responsivo para desktop e dispositivos móveis
-* Reprodução de conteúdo de áudio
-* Galeria de imagens
-* Interface inspirada em layouts retrô da web
-* Deploy automatizado via GitHub e Render
+A aplicação foi organizada em múltiplas páginas independentes.
+
+```text
+Archive
+     │
+     ▼
+Loading
+     │
+     ▼
+Home
+```
+
+Cada página possui sua própria folha de estilos e seu próprio script JavaScript, facilitando manutenção, organização e escalabilidade.
 
 ---
 
-## Instalação e Execução
+# Funcionalidades
+
+- Servidor HTTP utilizando Express.js
+- Renderização de páginas com EJS
+- Organização modular de CSS e JavaScript
+- Sistema de múltiplas rotas
+- Interface responsiva
+- Reprodução de áudio integrada
+- Galeria de imagens
+- Transições entre páginas
+- Componentes reutilizáveis
+- Layout inspirado em interfaces retrô
+- Deploy automatizado utilizando GitHub e Render
+
+---
+
+# Instalação
 
 Clone o repositório:
 
@@ -103,7 +157,7 @@ Clone o repositório:
 git clone https://github.com/kdduuu/seemilyplay.git
 ```
 
-Acesse o diretório do projeto:
+Acesse o diretório:
 
 ```bash
 cd seemilyplay
@@ -115,13 +169,13 @@ Instale as dependências:
 npm install
 ```
 
-Inicie o servidor:
+Execute a aplicação:
 
 ```bash
 npm start
 ```
 
-A aplicação estará disponível em:
+A aplicação ficará disponível em:
 
 ```text
 http://localhost:3000
@@ -129,35 +183,46 @@ http://localhost:3000
 
 ---
 
-## Deploy
+# Deploy
 
-O projeto está configurado para execução local e em ambientes de hospedagem através da utilização da variável de ambiente PORT.
+A aplicação utiliza a variável de ambiente `PORT`, permitindo execução local e publicação em ambientes de produção sem necessidade de alterações adicionais.
 
 ```javascript
 const PORT = process.env.PORT || 3000;
 ```
 
-Isso permite que a aplicação seja executada localmente e publicada em serviços como Render sem alterações adicionais no código.
+---
+
+# Objetivos de Aprendizagem
+
+Durante o desenvolvimento deste projeto foram praticados conceitos relacionados a:
+
+- Node.js
+- Express.js
+- Template Engines
+- Estruturação de aplicações web
+- Organização modular de CSS e JavaScript
+- Responsividade
+- Gerenciamento de rotas
+- Renderização no servidor
+- Versionamento com Git
+- Integração contínua entre GitHub e Render
 
 ---
 
-## Objetivos de Aprendizagem
+# Boas Práticas Adotadas
 
-Este projeto foi desenvolvido com o objetivo de praticar:
-
-* Desenvolvimento de aplicações com Node.js
-* Criação de servidores utilizando Express.js
-* Utilização de Template Engines
-* Estruturação de projetos web
-* Responsividade com CSS
-* Controle de versão utilizando Git
-* Hospedagem e deploy de aplicações web
-* Integração entre GitHub e Render
+- Separação entre estrutura, estilo e comportamento.
+- Organização modular dos arquivos por responsabilidade.
+- Comentários padronizados em todo o código.
+- Estrutura preparada para expansão futura.
+- Navegação organizada através de rotas independentes.
+- Layout responsivo para diferentes dispositivos.
 
 ---
 
-## Autor
+# Autor
 
 **Kadu Almeida**
 
-Projeto desenvolvido para estudo, experimentação e prática de tecnologias voltadas ao desenvolvimento web moderno.
+Projeto desenvolvido para estudo, prática de desenvolvimento Full Stack e aplicação de conceitos modernos de arquitetura web utilizando Node.js, Express.js e EJS.
