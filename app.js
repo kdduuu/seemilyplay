@@ -40,32 +40,48 @@ app.use(express.static(path.join(__dirname, "public")));
 // ROTAS
 // ======================================
 
-// Página principal
+
+// ======================================
+// ARCHIVE
+// ======================================
+
+// Página inicial do projeto
+
 app.get("/", (req, res) => {
 
-    // Renderiza index.ejs
-    res.render("index");
-
-});
-
-
-// Página de introdução ao Emily Navigator
-app.get("/archive", (req, res) => {
-
     // Renderiza archive.ejs
+
     res.render("archive");
 
 });
+
 
 // ======================================
 // LOADING
 // ======================================
 
-// Tela de carregamento antes da página principal
+// Tela de carregamento
 
 app.get("/loading", (req, res) => {
 
+    // Renderiza loading.ejs
+
     res.render("loading");
+
+});
+
+
+// ======================================
+// HOME
+// ======================================
+
+// Emily Navigator
+
+app.get("/home", (req, res) => {
+
+    // Renderiza index.ejs
+
+    res.render("index");
 
 });
 
@@ -76,6 +92,7 @@ app.get("/loading", (req, res) => {
 
 // Usa a porta do Render
 // ou localmente usa 3000
+
 const PORT = process.env.PORT || 3000;
 
 
@@ -94,17 +111,18 @@ app.listen(PORT, () => {
 // FUNÇÃO DESTE ARQUIVO
 // ======================================
 
-// Este arquivo é o coração do back-end do meu projeto.
-// Ele configura o servidor Node.js com Express, define onde estão as views e os arquivos estáticos,
-// e cria as rotas responsáveis por renderizar as páginas da aplicação.
+// Este arquivo é o coração do back-end do projeto.
 //
-// Responsabilidade:
-// - iniciar o servidor na porta escolhida
-// - servir arquivos estáticos de dentro da pasta public
-// - renderizar a página principal (index.ejs)
-// - renderizar a página de introdução (archive.ejs)
+// Responsabilidades:
 //
-// Por que ele é importante:
-// - sem ele, meu site não teria um servidor para responder às requisições
-// - ele conecta meu front-end estruturado (HTML, CSS, Bootstrap) ao back-end em Node.js
-// - facilita adicionar novas rotas e APIs no futuro
+// - iniciar o servidor Express
+// - servir arquivos estáticos da pasta public
+// - renderizar as páginas EJS
+// - controlar o fluxo de navegação:
+//
+//      /          → Archive
+//      /loading   → Loading
+//      /home      → Emily Navigator
+//
+// Dessa forma, o visitante percorre a experiência
+// completa do projeto antes de chegar à página principal.

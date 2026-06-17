@@ -117,7 +117,7 @@ async function startBootSequence(){
 
     setTimeout(() => {
 
-        window.location.href = "/";
+        window.location.href = "/home";
 
     }, 450);
 
