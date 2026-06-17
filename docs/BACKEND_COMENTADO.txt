@@ -1,0 +1,66 @@
+MEU BACK-END COMENTADO
+
+Eu organizei o back-end do meu projeto utilizando Node.js com Express e
+EJS, separando responsabilidades entre servidor, rotas, renderização das
+páginas e arquivos estáticos.
+
+1. O que eu utilizei
+
+-   Node.js
+-   Express.js
+-   EJS
+-   Path
+
+2. package.json
+
+-   main: app.js define o ponto de entrada.
+-   npm start executa o servidor.
+-   dependencies armazenam as bibliotecas do projeto.
+
+3. Organização do app.js
+
+-   Importações
+-   Criação da aplicação
+-   Configuração do EJS
+-   Arquivos estáticos
+-   Rotas
+-   Porta
+-   Inicialização do servidor
+
+4. Rotas
+
+-   / → archive.ejs
+-   /loading → loading.ejs
+-   /home → index.ejs
+
+5. Função de cada parte
+
+-   express() cria a aplicação.
+-   app.set() configura o EJS.
+-   express.static() libera a pasta public.
+-   app.get() define as rotas.
+-   res.render() renderiza as páginas.
+-   app.listen() inicia o servidor.
+
+6. Fluxo
+
+Archive
+
+↓
+
+Loading
+
+↓
+
+Home
+
+Cada página possui arquivos CSS e JavaScript próprios, mantendo o
+projeto modular e organizado.
+
+7. Próximas possibilidades
+
+-   APIs REST
+-   Banco de dados
+-   Autenticação
+-   Novas rotas
+-   Persistência de dados

@@ -51,7 +51,12 @@ Serviço responsável pelo deploy e disponibilização da aplicação em ambient
 # Arquitetura do Projeto
 
 ```text
+```text
 seemilyplay
+│
+├── docs
+│   ├── MEU BACK-END COMENTADO.txt
+│   └── EXPLICACAO_PACKAGE_E_SCRIPTS.txt
 │
 ├── public
 │   ├── css
@@ -78,7 +83,10 @@ seemilyplay
 │
 ├── app.js
 ├── package.json
-└── README.md
+├── README.md
+└── .gitignore
+```
+
 ```
 
 ---

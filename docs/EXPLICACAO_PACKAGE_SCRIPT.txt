@@ -1,0 +1,40 @@
+EXPLICAÇÃO DO PACKAGE.JSON E DOS SCRIPTS
+
+package.json
+
+Responsável por configurar o projeto Node.js.
+
+Contém:
+
+-   nome do projeto;
+-   versão;
+-   scripts;
+-   dependências;
+-   arquivo principal.
+
+npm start executa o servidor definido em app.js.
+
+Scripts JavaScript
+
+archive.js
+
+Controla a página Archive e inicia a navegação para a tela de Loading.
+
+loading.js
+
+Controla a tela de carregamento e redireciona automaticamente para a
+Home.
+
+script.js
+
+Controla as interações da Home:
+
+-   chat;
+-   respostas automáticas;
+-   atualização dinâmica das mensagens;
+-   rolagem automática.
+
+Organização
+
+Cada página possui seu próprio JavaScript, reduzindo acoplamento e
+facilitando manutenção e expansão do projeto.
