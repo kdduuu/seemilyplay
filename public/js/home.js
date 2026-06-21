@@ -123,6 +123,105 @@ photoWrappers.forEach(wrapper => {
 
 });
 
+// =======================================
+// SCOTT ARCHIVE POPUP
+// =======================================
+
+const scottTrigger = document.getElementById("scott-trigger");
+const scottPopup = document.getElementById("scott-popup");
+const closeScottPopup = document.getElementById("close-scott-popup");
+
+const scottArtFrame = document.querySelector(".scott-art-frame");
+const scottArt = document.querySelector(".scott-art");
+
+function cropScottArtText(text) {
+
+    let lines = text.replace(/\r/g, "").split("\n");
+
+    // Remove linhas totalmente vazias no começo e no fim
+    while (lines.length && lines[0].replace(/[ \t\u2800]/g, "") === "") {
+        lines.shift();
+    }
+
+    while (lines.length && lines[lines.length - 1].replace(/[ \t\u2800]/g, "") === "") {
+        lines.pop();
+    }
+
+    // Remove espaços invisíveis no fim de cada linha
+    lines = lines.map(line => line.replace(/[ \t\u2800]+$/g, ""));
+
+    // Remove margem vazia comum no começo das linhas
+    const filledLines = lines.filter(line => line.replace(/[ \t\u2800]/g, "") !== "");
+
+    if (filledLines.length) {
+
+        const minLeftSpace = Math.min(
+            ...filledLines.map(line => {
+                const match = line.match(/^[ \t\u2800]*/);
+                return match ? match[0].length : 0;
+            })
+        );
+
+        lines = lines.map(line => line.slice(minLeftSpace));
+
+    }
+
+    return lines.join("\n");
+
+}
+
+function fitScottArt() {
+
+    if (!scottArtFrame || !scottArt) {
+        return;
+    }
+
+    scottArt.style.transform = "scale(1)";
+    scottArtFrame.style.height = "auto";
+
+    const frameWidth = scottArtFrame.clientWidth;
+    const artWidth = scottArt.scrollWidth;
+
+    const scale = Math.min(frameWidth / artWidth, 1);
+
+    scottArt.style.transform = `scale(${scale})`;
+
+    scottArtFrame.style.height = `${scottArt.scrollHeight * scale}px`;
+
+}
+
+if (scottArt) {
+    scottArt.textContent = cropScottArtText(scottArt.textContent);
+}
+
+if (scottTrigger && scottPopup && closeScottPopup) {
+
+    scottTrigger.addEventListener("click", () => {
+
+        scottPopup.style.display = "block";
+
+        setTimeout(fitScottArt, 50);
+
+    });
+
+    closeScottPopup.addEventListener("click", () => {
+
+        scottPopup.style.display = "none";
+
+    });
+
+}
+
+window.addEventListener("resize", () => {
+
+    if (scottPopup && scottPopup.style.display === "block") {
+
+        fitScottArt();
+
+    }
+
+});
+
 
 // =======================================
 // FUNÇÃO DESTE ARQUIVO
