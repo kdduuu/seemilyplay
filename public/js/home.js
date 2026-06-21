@@ -124,6 +124,105 @@ photoWrappers.forEach(wrapper => {
 });
 
 // =======================================
+// CUSTOM AUDIO PLAYER
+// =======================================
+
+(() => {
+
+    const siteAudio = document.getElementById("site-audio");
+    const audioToggle = document.getElementById("audio-toggle");
+    const audioBar = document.getElementById("audio-bar");
+    const audioProgress = document.getElementById("audio-progress");
+    const audioTime = document.getElementById("audio-time");
+
+    if (!siteAudio || !audioToggle || !audioBar || !audioProgress || !audioTime) {
+        return;
+    }
+
+    function formatAudioTime(seconds) {
+
+        if (isNaN(seconds)) {
+            return "0:00";
+        }
+
+        const minutes = Math.floor(seconds / 60);
+
+        const secs = Math.floor(seconds % 60)
+            .toString()
+            .padStart(2, "0");
+
+        return `${minutes}:${secs}`;
+
+    }
+
+    function updateAudioPlayer() {
+
+        const current = siteAudio.currentTime;
+        const duration = siteAudio.duration;
+
+        const progress = duration ? (current / duration) * 100 : 0;
+
+        audioProgress.style.width = `${progress}%`;
+
+        audioTime.textContent = `${formatAudioTime(current)} / ${formatAudioTime(duration)}`;
+
+    }
+
+    audioToggle.addEventListener("click", () => {
+
+        if (siteAudio.paused) {
+
+            siteAudio.play();
+
+            audioToggle.textContent = "[ pause ]";
+
+        } else {
+
+            siteAudio.pause();
+
+            audioToggle.textContent = "[ play ]";
+
+        }
+
+    });
+
+    siteAudio.addEventListener("timeupdate", updateAudioPlayer);
+
+    siteAudio.addEventListener("loadedmetadata", updateAudioPlayer);
+
+    siteAudio.addEventListener("pause", () => {
+
+        audioToggle.textContent = "[ play ]";
+
+    });
+
+    siteAudio.addEventListener("play", () => {
+
+        audioToggle.textContent = "[ pause ]";
+
+    });
+
+    audioBar.addEventListener("click", (event) => {
+
+        const duration = siteAudio.duration;
+
+        if (!duration) {
+            return;
+        }
+
+        const barPosition = audioBar.getBoundingClientRect();
+
+        const clickPosition = event.clientX - barPosition.left;
+
+        const percentage = clickPosition / barPosition.width;
+
+        siteAudio.currentTime = percentage * duration;
+
+    });
+
+})();
+
+// =======================================
 // SCOTT ARCHIVE POPUP
 // =======================================
 

@@ -280,7 +280,7 @@
                                 <p>
 
                                     emily is listening to:
-                                    "Timmy Bowers"
+                                    "Dagger"
 
                                 </p>
 
@@ -305,42 +305,64 @@
             <div class="right-side">
 
 
-                <!-- ===================================== -->
-                <!-- MÚSICA -->
-                <!-- ===================================== -->
+            <!-- ===================================== -->
+            <!-- MÚSICA -->
+            <!-- ===================================== -->
 
-                <div class="window-box">
+            <div class="window-box">
 
-                    <div class="box-title">
+                <div class="box-title">
 
-                        now playing
-
-                    </div>
-
-
-                    <div class="music-box">
-
-                        <p>
-
-                            Modern Baseball
-
-                        </p>
-
-                        <p class="song-name">
-
-                            Timmy Bowers
-
-                        </p>
-
-                        <audio controls autoplay loop>
-
-                            <source src="/music/song.mp3">
-
-                        </audio>
-
-                    </div>
+                    now playing
 
                 </div>
+
+
+            <div class="music-box">
+
+            <p>
+
+                Slowdive
+
+            </p>
+
+            <p class="song-name">
+
+                Dagger
+
+            </p>
+
+            <audio id="site-audio" loop preload="metadata">
+
+                <source src="/music/song.mp3" type="audio/mpeg">
+
+            </audio>
+
+            <div class="retro-audio-player">
+
+                <button id="audio-toggle" class="audio-toggle" type="button">
+
+                    [ play ]
+
+                </button>
+
+            <div class="audio-bar" id="audio-bar">
+
+                <div class="audio-progress" id="audio-progress"></div>
+
+            </div>
+
+            <span id="audio-time" class="audio-time">
+
+                0:00 / 0:00
+
+            </span>
+
+            </div>
+
+        </div>
+
+        </div>
 
 
 

@@ -546,33 +546,196 @@ body::before{
 /* MÚSICA */
 /* ======================================= */
 
-.music-box{
+.music-box {
 
-    padding:15px;
+    padding: 15px;
 
-    display:flex;
+    display: flex;
 
-    flex-direction:column;
+    flex-direction: column;
 
-    gap:10px;
-
-}
-
-.song-name{
-
-    opacity:0.6;
-
-    font-size:13px;
+    gap: 10px;
 
 }
 
-audio{
+.music-box p {
 
-    width:100%;
+    margin: 0;
 
-    filter:grayscale(1);
+}
 
-    opacity:0.8;
+.song-name {
+
+    opacity: 0.65;
+
+    font-size: 13px;
+
+}
+
+
+/* Esconde o player padrão do navegador */
+
+#site-audio {
+
+    display: none;
+
+}
+
+
+/* ======================================= */
+/* CUSTOM AUDIO PLAYER */
+/* ======================================= */
+
+.retro-audio-player {
+
+    width: 100%;
+
+    margin-top: 4px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-family: Consolas, "Courier New", monospace;
+
+}
+
+
+/* BOTÃO PLAY / PAUSE */
+
+.audio-toggle {
+
+    background: #0b0b0b;
+
+    border: 1px solid #2a2a2a;
+
+    color: #d6d6d6;
+
+    padding: 5px 8px;
+
+    font-size: 10px;
+
+    font-family: Consolas, "Courier New", monospace;
+
+    cursor: pointer;
+
+    text-transform: lowercase;
+
+    transition:
+        border-color 0.2s ease,
+        color 0.2s ease,
+        background 0.2s ease;
+
+}
+
+.audio-toggle:hover {
+
+    border-color: #555;
+
+    color: #ffffff;
+
+    background: #111;
+
+}
+
+
+/* BARRA DA MÚSICA */
+
+.audio-bar {
+
+    flex: 1;
+
+    height: 7px;
+
+    background: #080808;
+
+    border: 1px solid #242424;
+
+    cursor: pointer;
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+.audio-progress {
+
+    width: 0%;
+
+    height: 100%;
+
+    background: #d6d6d6;
+
+    opacity: 0.75;
+
+    transition: width 0.1s linear;
+
+}
+
+
+/* TEMPO */
+
+.audio-time {
+
+    min-width: 76px;
+
+    font-size: 10px;
+
+    color: #bdbdbd;
+
+    opacity: 0.75;
+
+    text-align: right;
+
+    font-family: Consolas, "Courier New", monospace;
+
+}
+
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    .music-box {
+
+        padding: 13px;
+
+        gap: 9px;
+
+    }
+
+    .retro-audio-player {
+
+        margin-top: 3px;
+
+        gap: 6px;
+
+    }
+
+    .audio-toggle {
+
+        padding: 4px 7px;
+
+        font-size: 9px;
+
+    }
+
+    .audio-bar {
+
+        height: 6px;
+
+    }
+
+    .audio-time {
+
+        min-width: 68px;
+
+        font-size: 9px;
+
+    }
 
 }
 
