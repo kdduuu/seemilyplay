@@ -8,7 +8,7 @@ O objetivo foi desenvolver uma aplicação com foco em organização de código,
 
 ---
 
-# Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 ### Node.js
 
@@ -48,59 +48,58 @@ Serviço responsável pelo deploy e disponibilização da aplicação em ambient
 
 ---
 
-# Arquitetura do Projeto
+## Arquitetura do Projeto
 
 ```text
-```text
-seemilyplay
+seemilyplay/
 │
-├── docs
-│   ├── MEU BACK-END COMENTADO.txt
-│   └── EXPLICACAO_PACKAGE_E_SCRIPTS.txt
+├── docs/
+│   ├── BACKEND_COMENTADO.txt
+│   └── EXPLICACAO_PACKAGE_SCRIPT.txt
 │
-├── public
-│   ├── css
+├── public/
+│   ├── css/
 │   │   ├── archive.css
-│   │   ├── loading.css
-│   │   └── style.css
+│   │   ├── home.css
+│   │   └── loading.css
 │   │
-│   ├── js
+│   ├── js/
 │   │   ├── archive.js
-│   │   ├── loading.js
-│   │   └── script.js
+│   │   ├── home.js
+│   │   └── loading.js
 │   │
-│   ├── music
+│   ├── music/
 │   │   └── song.mp3
 │   │
-│   └── photos
+│   └── photos/
 │       ├── photo1.jpeg
 │       └── photo2.jpeg
 │
-├── views
+├── views/
 │   ├── archive.ejs
-│   ├── loading.ejs
-│   └── index.ejs
+│   ├── index.ejs
+│   └── loading.ejs
 │
 ├── app.js
 ├── package.json
-├── README.md
-└── .gitignore
+├── package-lock.json
+└── README.md
 ```
 
-```
+*A estrutura apresenta os arquivos principais do projeto, sem incluir dependências instaladas localmente.*
 
 ---
 
-# Organização do Projeto
+## Organização do Projeto
 
 ### public/
 
 Contém todos os recursos estáticos utilizados pela aplicação.
 
-- folhas de estilo
-- scripts JavaScript
-- imagens
-- arquivos de áudio
+- Folhas de estilo;
+- Scripts JavaScript;
+- Imagens;
+- Arquivos de áudio.
 
 ### views/
 
@@ -112,52 +111,56 @@ Cada página possui uma responsabilidade específica dentro do fluxo da aplicaç
 
 Arquivo principal responsável por:
 
-- inicializar o servidor Express;
-- configurar a Template Engine;
-- disponibilizar arquivos estáticos;
-- definir as rotas da aplicação.
+- Inicializar o servidor Express;
+- Configurar a Template Engine;
+- Disponibilizar arquivos estáticos;
+- Definir as rotas da aplicação.
 
 ### package.json
 
 Arquivo responsável pelo gerenciamento das dependências, scripts e configurações do projeto.
 
+### package-lock.json
+
+Arquivo responsável por registrar as versões das dependências instaladas, permitindo instalações mais consistentes.
+
 ---
 
-# Estrutura de Navegação
+## Estrutura de Navegação
 
 A aplicação foi organizada em múltiplas páginas independentes.
 
 ```text
 Archive
-     │
-     ▼
+   │
+   ▼
 Loading
-     │
-     ▼
-Home
+   │
+   ▼
+ Home
 ```
 
-Cada página possui sua própria folha de estilos e seu próprio script JavaScript, facilitando manutenção, organização e escalabilidade.
+Cada página possui sua própria folha de estilos e seu próprio script JavaScript, facilitando manutenção e organização.
 
 ---
 
-# Funcionalidades
+## Funcionalidades
 
-- Servidor HTTP utilizando Express.js
-- Renderização de páginas com EJS
-- Organização modular de CSS e JavaScript
-- Sistema de múltiplas rotas
-- Interface responsiva
-- Reprodução de áudio integrada
-- Galeria de imagens
-- Transições entre páginas
-- Componentes reutilizáveis
-- Layout inspirado em interfaces retrô
-- Deploy automatizado utilizando GitHub e Render
+- Servidor HTTP utilizando Express.js;
+- Renderização de páginas com EJS;
+- Organização modular de CSS e JavaScript;
+- Sistema de múltiplas rotas;
+- Interface responsiva;
+- Reprodução de áudio integrada;
+- Galeria de imagens;
+- Transições entre páginas;
+- Organização das páginas em templates EJS;
+- Layout inspirado em interfaces retrô;
+- Deploy integrado ao GitHub e Render.
 
 ---
 
-# Instalação
+## Instalação
 
 Clone o repositório:
 
@@ -185,13 +188,11 @@ npm start
 
 A aplicação ficará disponível em:
 
-```text
-http://localhost:3000
-```
+`http://localhost:3000`
 
 ---
 
-# Deploy
+## Deploy
 
 A aplicação utiliza a variável de ambiente `PORT`, permitindo execução local e publicação em ambientes de produção sem necessidade de alterações adicionais.
 
@@ -199,37 +200,39 @@ A aplicação utiliza a variável de ambiente `PORT`, permitindo execução loca
 const PORT = process.env.PORT || 3000;
 ```
 
+**Aplicação publicada:** https://seemilyplay.onrender.com
+
 ---
 
-# Objetivos de Aprendizagem
+## Objetivos de Aprendizagem
 
 Durante o desenvolvimento deste projeto foram praticados conceitos relacionados a:
 
-- Node.js
-- Express.js
-- Template Engines
-- Estruturação de aplicações web
-- Organização modular de CSS e JavaScript
-- Responsividade
-- Gerenciamento de rotas
-- Renderização no servidor
-- Versionamento com Git
-- Integração contínua entre GitHub e Render
+- Node.js;
+- Express.js;
+- Template Engines;
+- Estruturação de aplicações web;
+- Organização modular de CSS e JavaScript;
+- Responsividade;
+- Gerenciamento de rotas;
+- Renderização no servidor;
+- Versionamento com Git;
+- Integração entre GitHub e Render.
 
 ---
 
-# Boas Práticas Adotadas
+## Boas Práticas Adotadas
 
-- Separação entre estrutura, estilo e comportamento.
-- Organização modular dos arquivos por responsabilidade.
-- Comentários padronizados em todo o código.
-- Estrutura preparada para expansão futura.
-- Navegação organizada através de rotas independentes.
+- Separação entre estrutura, estilo e comportamento;
+- Organização modular dos arquivos por responsabilidade;
+- Comentários explicativos no código;
+- Estrutura preparada para expansão futura;
+- Navegação organizada através de rotas independentes;
 - Layout responsivo para diferentes dispositivos.
 
 ---
 
-# Autor
+## Autor
 
 **Kadu Almeida**
 
